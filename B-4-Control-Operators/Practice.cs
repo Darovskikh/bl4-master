@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Basic.Lesson_4._1
 {
@@ -27,7 +22,7 @@ namespace Basic.Lesson_4._1
         //B4-P4/25. If_Akinator5Numbers
         public static void B4_P4_25_If_Akinator5Numbers()
         {
-            
+
         }
 
         //B4-P5/25. Switch_DayOfWeek
@@ -38,13 +33,13 @@ namespace Basic.Lesson_4._1
         //B4-P6/25. Switch_GameNavigation
         public static void B4_P6_25_Switch_GameNavigation()
         {
-            
+
         }
 
         //B4-P7/25. For_10OddEven
         public static void B4_P7_25_For_10OddEven()
         {
-            
+
         }
 
 
@@ -57,7 +52,7 @@ namespace Basic.Lesson_4._1
         //B4-P9/25. For_Matrix10x10
         public static void B4_P9_25_For_Matrix10x10()
         {
-           
+
         }
 
 
@@ -70,7 +65,7 @@ namespace Basic.Lesson_4._1
         //B4_P11/25. For_Afrochildren
         public static void B4_P11_25_For_Afrochildren()
         {
-            
+
         }
 
 
@@ -83,28 +78,43 @@ namespace Basic.Lesson_4._1
         //B4-P13/25 For_LettersCount
         public static void B4_P13_25_For_LettersCount()
         {
-            
+            Console.WriteLine("Введите слово");
+            string str = Console.ReadLine();
+            str = str.ToLower();
+            int k = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if ((str[i] == 'а') || (str[i] == 'a'))
+                {
+                    k++;
+                }
+            }
+            Console.WriteLine($"Количесво букв 'a' равно {k}");
         }
 
 
         //B4-P14/25 *For_AlphabetBack
         public static void B4_P14_25_For_AlphabetBack()
         {
-            
+            for (int i = 122; i >= 97; i--)
+            {
+                char t = Convert.ToChar(i);
+                Console.Write($"{t} ");
+            }
         }
 
 
         //B4-P15/25 While_OddEventNumber
         public static void B4_P15_25_While_OddEventNumber()
         {
-            
+
         }
 
 
         //B4-P16/25 DoWhile_OddEventNumber
         public static void B4_P16_25_DoWhile_OddEventNumber()
         {
-           
+
         }
 
 
@@ -117,48 +127,123 @@ namespace Basic.Lesson_4._1
         //B4-P18/25 While_Multiplier
         public static void B4_P18_25_While_Multiplier()
         {
-            
+            int sum = 1;
+            Console.Write("Введите число ");
+            int number = Int32.Parse(Console.ReadLine());
+            Console.Write("Введите степень, в которую требуется возвести число ");
+            int power = Int32.Parse(Console.ReadLine());
+            while (power >= 1)
+            {
+                power--;
+                sum *= number;
+            }
+            Console.WriteLine($"Ответ - {sum}");
         }
 
 
         //B4-P19/25 While_SolveNumberAdding
         public static void B4_P19_25_While_SolveNumberAdding()
         {
-            
+
         }
 
 
         //B4-P20/25 While_DiceGame
         public static void B4_P20_25_While_DiceGame()
         {
-            
+            int number = 0;
+            int sum = 0;
+            int ostatok = 25;
+            while (sum <= 25)
+            {
+                Console.WriteLine("Нажмите Enter чтобы бросить кость");
+                while (Console.ReadKey().Key == ConsoleKey.Enter)
+                {
+                    Random random = new Random();
+                    number = random.Next(7);
+                    break;
+                }
+                sum += number;
+                if (ostatok < number)
+                {
+                    Console.WriteLine($"Кость - {number} ");
+                    Console.WriteLine($"Осталось 0 шагов");
+                    Console.WriteLine("Finish");
+                    break;
+                }
+                ostatok = 25 - sum;
+                Console.WriteLine($"Кость - {number} ");
+                Console.WriteLine($"Осталось {25 - sum} шагов");
+            }
+
         }
 
 
         //B4-P21/25 *While_DiceGameMultiplePlayers
         public static void dB4_P21_25_While_DiceGameMultiplePlayers()
         {
+            int number = 0;
+            int number1 = 0;                        
+            int sum = 0;
+            int sum1 = 0;
+            int ostatok = 25;
+            int ostatok1 = 25;
+            while ((sum <= 25) || (sum1<=25))
+            {
+                Console.WriteLine("Нажмите Enter чтобы бросить кость");
+                while (Console.ReadKey().Key == ConsoleKey.Enter)
+                {
+                    Random random = new Random();
+                    Random random1 = new Random();
+                    number = random.Next(7);
+                    number1 = random1.Next(7);
+                    break;
+                }
+                sum += number;
+                sum1 += number1;
+                if (ostatok < number)
+                {
+                    Console.WriteLine($"Кость 1 игрока - {number} ");
+                    Console.WriteLine("Осталось 0 шагов");
+                    Console.WriteLine("Finish, победил 1 игрок");
+                    break;
+                }
+                if (ostatok1 < number1)
+                {
+                    Console.WriteLine($"Кость 2 игрока - {number} ");
+                    Console.WriteLine("Осталось 0 шагов");
+                    Console.WriteLine("Finish, победил 2 игрок");
+                    break;
+                }
+                ostatok = 25 - sum;
+                ostatok1 = 25 - sum;
+                Console.WriteLine($"Кость 1 игрока- {number} ");
+                Console.WriteLine($"Кость 2 игрока- {number1} ");
+                Console.WriteLine($"Осталось {25 - sum} шагов для 1 игрока");
+                Console.WriteLine($"Осталось {25 - sum1} шагов для 2 игрока");
+            }
+
         }
 
 
         //B4-P22_25 *While_Akinator100Numbers
         public static void B4_P22_25_While_Akinator100Numbers()
         {
-            
+
         }
 
 
         //B4-P23/25 IfElse_Calcultor
         public static void B4_P23_25_IfElse_Calcultor()
         {
-            
+
         }
 
 
         //B4-P24_25 Switch_Calculator
         public static void B4_P24_25_Switch_Calculator()
         {
-            
+
         }
 
 

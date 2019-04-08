@@ -11,7 +11,8 @@ namespace Basic.Lesson_4._1
     {
         static void Main(string[] args)
         {
-             Console.ReadLine();
+            Practice.dB4_P21_25_While_DiceGameMultiplePlayers();
+            Console.ReadLine();
         }
      }
 }
