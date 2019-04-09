@@ -11,7 +11,8 @@ namespace Basic.Lesson_4._1
     {
         static void Main(string[] args)
         {
-             Console.ReadLine();
-        }
+            Practice.B4_P25_25_Cycle_WordRevercse();
+            Console.ReadLine();
+            }
      }
 }
