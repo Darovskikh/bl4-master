@@ -11,8 +11,8 @@ namespace Basic.Lesson_4._1
     {
         static void Main(string[] args)
         {
-            Practice.dB4_P21_25_While_DiceGameMultiplePlayers();
+            Practice.B4_P25_25_Cycle_WordRevercse();
             Console.ReadLine();
-        }
+            }
      }
 }

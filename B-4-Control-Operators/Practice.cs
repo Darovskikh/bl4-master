@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace Basic.Lesson_4._1
 {
@@ -193,10 +196,9 @@ namespace Basic.Lesson_4._1
                 Console.WriteLine("Нажмите Enter чтобы бросить кость");
                 while (Console.ReadKey().Key == ConsoleKey.Enter)
                 {
-                    Random random = new Random();
-                    Random random1 = new Random();
+                    Random random = new Random();                 
                     number = random.Next(7);
-                    number1 = random1.Next(7);
+                    number1 = random.Next(7);
                     break;
                 }
                 sum += number;
@@ -204,13 +206,15 @@ namespace Basic.Lesson_4._1
                 if (ostatok < number)
                 {
                     Console.WriteLine($"Кость 1 игрока - {number} ");
+                    Console.WriteLine($"Кость 2 игрока - {number1} ");
                     Console.WriteLine("Осталось 0 шагов");
                     Console.WriteLine("Finish, победил 1 игрок");
                     break;
                 }
                 if (ostatok1 < number1)
                 {
-                    Console.WriteLine($"Кость 2 игрока - {number} ");
+                    Console.WriteLine($"Кость 1 игрока - {number} ");
+                    Console.WriteLine($"Кость 2 игрока - {number1} ");
                     Console.WriteLine("Осталось 0 шагов");
                     Console.WriteLine("Finish, победил 2 игрок");
                     break;
@@ -229,6 +233,41 @@ namespace Basic.Lesson_4._1
         //B4-P22_25 *While_Akinator100Numbers
         public static void B4_P22_25_While_Akinator100Numbers()
         {
+            Console.WriteLine("Загадайте число от 1 до 100");
+            Console.WriteLine("На вопросы отвечайте да или нет");
+            int ch = 50;
+            int half = 25;
+            int numb = 0;
+            while (numb != 1)
+            {
+                Console.WriteLine($"Ваше число {ch}? ");
+                if (Console.ReadLine() == "да")
+                {
+                    Console.WriteLine($"Ваше число - {ch}");
+                    numb = 1;
+                }
+                else
+                {
+                    Console.WriteLine($"Ваше больше {ch}? ");
+                    if (Console.ReadLine() == "да")
+                    {
+                        if (half == 0)
+                        {
+                            half++;}
+                        ch += half;
+                        half /= 2;
+                    }                        
+                    else 
+                    {
+                        if (half == 0)
+                        {
+                            half++;
+                        }
+                        ch -= half;
+                        half /= 2;
+                    }
+                }
+            }
 
         }
 
@@ -250,6 +289,12 @@ namespace Basic.Lesson_4._1
         //B4-P25/25 Cycle_WordRevercse
         public static void B4_P25_25_Cycle_WordRevercse()
         {
+            Console.WriteLine("Введите слово");
+            string word = Console.ReadLine();                    
+            for (int i = word.Length-1; i>=0; i--)
+            {
+                Console.Write(word[i]);
+            }            
         }
     }
 }
